@@ -40,11 +40,8 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
-=======
->>>>>>> db635f649429bf0733cab9e7cccd9649838e8bad
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1"
