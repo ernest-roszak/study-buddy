@@ -13,6 +13,7 @@ export const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   margin-left: 14px;
+  outline: none;
 
   svg {
     // fill: red;
