@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import UserList from '../components/organisms/UsersList/UsersList';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { users as usersData } from 'data/users';
 import { GlobalStyle } from 'assets/styles/globalStyles';
 import { theme } from 'assets/styles/theme';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Form } from 'components/organisms/Form/Form';
-
-const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-`;
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { MainTemplate } from 'components/templates/MainTemplate/MainTemplate';
+import { Wrapper } from './Root.styles';
+import AddUser from 'views/AddUser';
+import Dashboard from 'views/Dashboard';
 
 const mockAPI = (success) => {
   return new Promise((resolve, reject) => {
@@ -28,30 +21,30 @@ const mockAPI = (success) => {
   });
 };
 
-const initalState = {
+const initialState = {
   name: '',
   attendance: '',
   average: '',
 };
 
 const Root = () => {
-  const [user, setAddUser] = useState([]);
+  const [users, setAddUser] = useState([]);
   const [isLoading, setIsLoading] = useState([]);
-  const [formValue, setFormValue] = useState(initalState);
+  const [formValues, setFormValues] = useState(initialState);
 
   const deleteUser = (name) => {
-    const filteredUsers = user.filter((user) => user.name !== name);
+    const filteredUsers = users.filter((user) => user.name !== name);
     setAddUser(filteredUsers);
   };
 
   const handleAddUser = (e) => {
     e.preventDefault();
-    setAddUser([formValue, ...user]);
-    setFormValue(initalState);
+    setAddUser([formValues, ...users]);
+    setFormValues(initialState);
   };
 
-  const handleValueChange = (e) => {
-    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  const handleInputChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
   useEffect(() => {
@@ -67,20 +60,18 @@ const Root = () => {
     <Router>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Wrapper>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/add-user">Add user</Link>
-          </nav>
-          <Switch>
-            <Route path="/add-user">
-              <Form handleAddUser={handleAddUser} formValue={formValue} handleValueChange={handleValueChange} />
-            </Route>
-            <Route path="/">
-              <UserList deleteUser={deleteUser} user={user} isLoading={isLoading} />
-            </Route>
-          </Switch>
-        </Wrapper>
+        <MainTemplate>
+          <Wrapper>
+            <Switch>
+              <Route path="/add-user">
+                <AddUser handleAddUser={handleAddUser} formValues={formValues} handleInputChange={handleInputChange} />
+              </Route>
+              <Route path="/">
+                <Dashboard deleteUser={deleteUser} users={users} isLoading={isLoading} />
+              </Route>
+            </Switch>
+          </Wrapper>
+        </MainTemplate>
       </ThemeProvider>
     </Router>
   );
