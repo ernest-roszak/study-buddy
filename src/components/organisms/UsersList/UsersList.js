@@ -5,14 +5,13 @@ import { StyledList } from './UsersList.styles';
 import { Title } from 'components/atoms/Title/Title';
 import { UserShape } from 'types';
 
-const UsersList = ({ deleteUser, isLoading, users }) => {
+const UsersList = ({ users }) => {
   return (
     <>
       <Title>Students list</Title>
-      <Title>{isLoading && 'Loading...'}</Title>
       <StyledList>
         {users.map((userData) => (
-          <UserListItem deleteUser={deleteUser} key={userData.name} userData={userData} />
+          <UserListItem key={userData.name} userData={userData} />
         ))}
       </StyledList>
     </>
