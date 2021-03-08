@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.nav`
   width: 100%;
@@ -27,10 +27,30 @@ export const Logo = styled.div`
   }
 `;
 
-export const StyledLink = styled(Link)`
+const activeClassName = 'active-link';
+export const StyledLink = styled(NavLink).attrs({ activeClassName })`
   font-weight: bold;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.darkGrey};
   text-align: right;
   margin: 15px 20px 15px auto;
+  position: relative;
+
+  &.${activeClassName} {
+    &::after {
+      opacity: 1;
+    }
+  }
+  &::after {
+    content: '';
+    opacity: 0;
+    transition: opacity 0.4s erase-in-out;
+    position: absolute;
+    width: 18px;
+    height: 3px;
+    transform: translateY(-50%);
+    top: 50%;
+    right: -20px;
+    background-color: ${({ theme }) => theme.colors.darkPurple};
+  }
 `;
