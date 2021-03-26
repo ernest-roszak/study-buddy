@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/study-buddy/static/css/main.a5582b99.chunk.css",
-    "main.js": "/study-buddy/static/js/main.55c92325.chunk.js",
-    "main.js.map": "/study-buddy/static/js/main.55c92325.chunk.js.map",
+    "main.js": "/study-buddy/static/js/main.2b528e9d.chunk.js",
+    "main.js.map": "/study-buddy/static/js/main.2b528e9d.chunk.js.map",
     "runtime-main.js": "/study-buddy/static/js/runtime-main.d35bb89a.js",
     "runtime-main.js.map": "/study-buddy/static/js/runtime-main.d35bb89a.js.map",
-    "static/js/2.59f51a23.chunk.js": "/study-buddy/static/js/2.59f51a23.chunk.js",
-    "static/js/2.59f51a23.chunk.js.map": "/study-buddy/static/js/2.59f51a23.chunk.js.map",
+    "static/js/2.ead177ea.chunk.js": "/study-buddy/static/js/2.ead177ea.chunk.js",
+    "static/js/2.ead177ea.chunk.js.map": "/study-buddy/static/js/2.ead177ea.chunk.js.map",
     "index.html": "/study-buddy/index.html",
     "static/css/main.a5582b99.chunk.css.map": "/study-buddy/static/css/main.a5582b99.chunk.css.map",
-    "static/js/2.59f51a23.chunk.js.LICENSE.txt": "/study-buddy/static/js/2.59f51a23.chunk.js.LICENSE.txt",
+    "static/js/2.ead177ea.chunk.js.LICENSE.txt": "/study-buddy/static/js/2.ead177ea.chunk.js.LICENSE.txt",
     "static/media/deleteIcon.5d3aee47.svg": "/study-buddy/static/media/deleteIcon.5d3aee47.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d35bb89a.js",
-    "static/js/2.59f51a23.chunk.js",
+    "static/js/2.ead177ea.chunk.js",
     "static/css/main.a5582b99.chunk.css",
-    "static/js/main.55c92325.chunk.js"
+    "static/js/main.2b528e9d.chunk.js"
   ]
 }
