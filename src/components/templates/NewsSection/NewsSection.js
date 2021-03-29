@@ -3,7 +3,21 @@ import React, { useEffect, useState } from 'react';
 import { ArticleWrapper, ContentWrapper, NewsSectionHeader, TitleWrapper, Wrapper } from './NewsSection.styles';
 import axios from 'axios';
 
-export const NewsSection = () => {
+export const query = `
+    {
+        allArticles {
+            id
+            title
+            category
+            content
+            image {
+                url
+                }
+        }
+    }
+`;
+
+const NewsSection = () => {
   const [articles, setArticels] = useState([]);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -11,18 +25,7 @@ export const NewsSection = () => {
       .post(
         'https://graphql.datocms.com/',
         {
-          query: `
-        {
-            allArticles {
-                id
-                title
-                category
-                content
-                image {
-                    url
-                    }
-            }
-        }`,
+          query,
         },
         {
           headers: {
@@ -56,3 +59,5 @@ export const NewsSection = () => {
     </Wrapper>
   );
 };
+
+export default NewsSection;
