@@ -14,7 +14,7 @@ export const UsersProvider = ({ children }) => {
   useEffect(() => {
     axios
       .get('/students')
-      .then((data) => setAddUser(data.students))
+      .then(({ data }) => setAddUser(data.students))
       .catch((err) => console.log('err', err));
   }, []);
 
