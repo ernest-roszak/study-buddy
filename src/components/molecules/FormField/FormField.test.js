@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FormField from './FormField';
 import { renderWithProviders } from 'helpers/renderWithProviders';
 
