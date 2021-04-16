@@ -1,8 +1,7 @@
-import { render, screen } from 'test-utils';
+import { render, screen, fireEvent, waitFor } from 'test-utils';
 import { setupServer } from 'msw/node';
 import { handlers } from 'mocks/handlers';
 import { SearchBar } from './SearchBar';
-import { fireEvent } from '@testing-library/dom';
 
 const server = setupServer(...handlers);
 
@@ -23,5 +22,17 @@ describe('Search Bar', () => {
     fireEvent.change(input, { target: { value: 'ad' } });
 
     await screen.findByText(/Adam Ro/);
+  });
+
+  it('Check that the list witch users is open', async () => {
+    render(<SearchBar />);
+    const input = screen.getByPlaceholderText('Search');
+    fireEvent.change(input, { target: { value: 'ad' } });
+    await screen.findByText(/Adam Ro/);
+
+    fireEvent.change(input, { target: { value: '' } });
+    await waitFor(() => {
+      expect(screen.getByLabelText('results')).not.toBeVisible();
+    });
   });
 });
