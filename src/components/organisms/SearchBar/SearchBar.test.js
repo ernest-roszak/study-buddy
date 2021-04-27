@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from 'test-utils';
+import { render, screen, fireEvent, waitFor } from 'hooks/test-utils';
 import { setupServer } from 'msw/node';
 import { handlers } from 'mocks/handlers';
 import { SearchBar } from './SearchBar';
