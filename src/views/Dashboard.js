@@ -5,11 +5,13 @@ import { Title } from 'components/atoms/Title/Title';
 import { GroupWrapper, TitleWrapper, Wrapper } from './Dashboard.styles';
 import { useStudents } from 'hooks/useStudents';
 import useModal from 'components/organisms/Modal/useModal';
+import { StyledAverage } from 'components/molecules/StudentsListItem/StudentsListItem.styles';
+import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
 
 const Dashboard = () => {
   const [groups, setGroups] = useState([]);
   const [currentStudent, setCurrentStudent] = useState([]);
-  const { getGroups } = useStudents();
+  const { getGroups, getStudentById } = useStudents();
   const { id } = useParams();
   const { Modal, isOpen, handleCloseModal, handleOpenModal } = useModal();
 
@@ -20,8 +22,9 @@ const Dashboard = () => {
     })();
   }, [getGroups]);
 
-  const handleOpenStudentDetails = (id) => {
-    setCurrentStudent(id);
+  const handleOpenStudentDetails = async (id) => {
+    const student = await getStudentById(id);
+    setCurrentStudent(student);
     handleOpenModal();
   };
 
@@ -40,7 +43,11 @@ const Dashboard = () => {
       </TitleWrapper>
       <GroupWrapper>
         <StudentsList handleOpenStudentDetails={handleOpenStudentDetails} />
-        {isOpen ? <Modal handleClose={handleCloseModal}>{currentStudent}</Modal> : null}
+        {isOpen ? (
+          <Modal handleClose={handleCloseModal}>
+            <StudentDetails student={currentStudent} />
+          </Modal>
+        ) : null}
       </GroupWrapper>
     </Wrapper>
   );
