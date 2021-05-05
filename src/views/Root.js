@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from 'assets/styles/globalStyles';
 import { theme } from 'assets/styles/theme';
@@ -7,6 +7,8 @@ import { MainTemplate } from 'components/templates/MainTemplate/MainTemplate';
 import { Wrapper } from './Root.styles';
 // import AddUser from 'views/AddUser';
 import Dashboard from 'views/Dashboard';
+import Modal from 'components/organisms/Modal/Modal';
+import { Button } from 'components/atoms/Button/Button';
 
 const Root = () => {
   return (

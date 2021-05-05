@@ -7,7 +7,7 @@ import { useParams } from 'react-router';
 import { useStudents } from 'hooks/useStudents';
 import StudentsListItem from 'components/molecules/StudentsListItem/StudentsListItem';
 
-const StudentsList = () => {
+const StudentsList = ({ handleOpenStudentDetails }) => {
   const [students, setStudents] = useState([]);
   const { id } = useParams();
   const { getStudents } = useStudents();
@@ -24,7 +24,7 @@ const StudentsList = () => {
       <Title>Students list</Title>
       <StyledList>
         {students.map((userData) => (
-          <StudentsListItem key={userData.name} userData={userData} />
+          <StudentsListItem onClick={() => handleOpenStudentDetails(userData.id)} key={userData.name} userData={userData} />
         ))}
       </StyledList>
     </>
