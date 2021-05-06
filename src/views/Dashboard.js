@@ -30,6 +30,30 @@ const Dashboard = () => {
   };
 
   if (!id && groups.length > 0) return <Redirect to={`/group/${groups[0]}`} />;
+
+  const student = {
+    id: '1',
+    name: 'Adam Romański',
+    attendance: '39%',
+    average: '2.3',
+    group: 'A',
+    course: 'Business Philosophy',
+    grades: [
+      {
+        subject: 'Business Philosophy',
+        average: '3.3',
+      },
+      {
+        subject: 'Marketing',
+        average: '4.7',
+      },
+      {
+        subject: 'Modern Economy',
+        average: '2.5',
+      },
+    ],
+  };
+
   return (
     <Wrapper>
       <TitleWrapper>
@@ -44,11 +68,9 @@ const Dashboard = () => {
       </TitleWrapper>
       <GroupWrapper>
         <StudentsList handleOpenStudentDetails={handleOpenStudentDetails} />
-        {isOpen ? (
-          <Modal handleClose={handleCloseModal}>
-            <StudentDetails student={currentStudent} />
-          </Modal>
-        ) : null}
+        <Modal handleClose={handleCloseModal} isOpen={isOpen}>
+          <StudentDetails student={student} />
+        </Modal>
       </GroupWrapper>
     </Wrapper>
   );
