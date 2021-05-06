@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title } from 'components/atoms/Title/Title';
-import { StyledAverage } from '../StudentsListItem/StudentsListItem.styles';
+import { Average } from 'components/atoms/Average/Average';
 
 const StudentDetails = ({ student }) => {
   return (
@@ -9,7 +9,7 @@ const StudentDetails = ({ student }) => {
         {student.name} | Group: {student.group}
       </Title>
       <p> {student.attendance}</p>
-      <StyledAverage value={student.average}>{student.average}</StyledAverage>
+      <Average value={student.average}>{student.average}</Average>
     </div>
   );
 };

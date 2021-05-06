@@ -5,7 +5,7 @@ import { Title } from 'components/atoms/Title/Title';
 import { GroupWrapper, TitleWrapper, Wrapper } from './Dashboard.styles';
 import { useStudents } from 'hooks/useStudents';
 import useModal from 'components/organisms/Modal/useModal';
-import { StyledAverage } from 'components/molecules/StudentsListItem/StudentsListItem.styles';
+
 import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
 
 const Dashboard = () => {

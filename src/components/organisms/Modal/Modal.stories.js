@@ -1,8 +1,8 @@
-import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
 import Modal from './Modal';
+import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
 
 export default {
-  title: 'Components/organisms/Modal',
+  title: 'Components/Organisms/Modal',
   component: Modal,
 };
 
@@ -15,9 +15,24 @@ const Template = (args) => (
         attendance: '39%',
         average: '2.3',
         group: 'A',
+        course: 'Business Philosophy',
+        grades: [
+          {
+            subject: 'Business Philosophy',
+            average: '3.3',
+          },
+          {
+            subject: 'Marketing',
+            average: '4.7',
+          },
+          {
+            subject: 'Modern Economy',
+            average: '2.5',
+          },
+        ],
       }}
-    ></StudentDetails>
+    />
   </Modal>
 );
 
-export const Default = Template.bind({});
+export const Student = Template.bind({});
