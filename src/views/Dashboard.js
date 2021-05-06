@@ -7,13 +7,14 @@ import { useStudents } from 'hooks/useStudents';
 import useModal from 'components/organisms/Modal/useModal';
 
 import StudentDetails from 'components/molecules/StudentDetails/StudentDetails';
+import Modal from 'components/organisms/Modal/Modal';
 
 const Dashboard = () => {
   const [groups, setGroups] = useState([]);
   const [currentStudent, setCurrentStudent] = useState([]);
   const { getGroups, getStudentById } = useStudents();
   const { id } = useParams();
-  const { Modal, isOpen, handleCloseModal, handleOpenModal } = useModal();
+  const { isOpen, handleCloseModal, handleOpenModal } = useModal();
 
   useEffect(() => {
     (async () => {
