@@ -23,6 +23,4 @@ const StudentDetails = ({ student }) => {
   );
 };
 
-StudentDetails.propTypes = {};
-
 export default StudentDetails;
