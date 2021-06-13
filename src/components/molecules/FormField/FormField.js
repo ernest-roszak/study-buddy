@@ -14,14 +14,14 @@ const Wrapper = styled.div`
   }
 `;
 
-const FormField = ({ onChange, value, name, id, label, type = 'string', ...props }) => {
+const FormField = React.forwardRef(({ onChange, value, name, id, label, type = 'text', ...props }, ref) => {
   return (
     <Wrapper>
       <Label htmlFor={id}>{label}</Label>
-      <Input type={type} id={id} name={name} onChange={onChange} value={value} data-testid={label} />
+      <Input type={type} id={id} name={name} onChange={onChange} value={value} data-testid={label} ref={ref} {...props} />
     </Wrapper>
   );
-};
+});
 
 FormField.propTypes = {
   id: PropTypes.string.isRequired,
