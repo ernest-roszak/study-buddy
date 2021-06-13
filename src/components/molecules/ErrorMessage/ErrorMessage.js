@@ -9,7 +9,7 @@ const defaultMessageError = 'Something went wrong. Please try again, or contact 
 const ErrorMessage = ({ message = defaultMessageError }) => {
   return (
     <Wrapper>
-      <Title>Opps!</Title>
+      <Title>Oops!</Title>
       <p>{message}</p>
     </Wrapper>
   );
