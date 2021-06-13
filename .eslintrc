@@ -8,7 +8,8 @@
         "singleQuote": true,
         "printWidth": 150
       }
-    ]
+    ],
+    "import/no-anonymous-default-export": "off"
   },
   "env": {
     "browser": true,
