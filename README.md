@@ -2,7 +2,7 @@
 
 # Project Name
 
-Study Buddy - platform
+Study Buddy - platform.
 
 ## Table of contents
 
