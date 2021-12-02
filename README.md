@@ -1,4 +1,4 @@
-![Example screenshot](./src/assets/bannerReadM.png)
+![Example screenshot](./src/assets/bannerReadMe.png)
 
 # Project Name
 
